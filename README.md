@@ -1,0 +1,1 @@
+[![Update Bond Prices](https://github.com/Huskice0124/bond-auto-update/actions/workflows/update_data.yml/badge.svg?branch=main)](https://github.com/Huskice0124/bond-auto-update/actions/workflows/update_data.yml)
