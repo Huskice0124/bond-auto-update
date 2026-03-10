@@ -31,7 +31,7 @@ def check_and_alert():
     # 2. 查詢溢價率為負數的標的 (premium_percent < 0)
     # 從你之前建立的 View: profitable_bonds_list 讀取
     try:
-        res = supabase.table("profitable_bonds_list").lt("premium_percent", 0).execute()
+        res = supabase.table("profitable_bonds_list").select("*").lt("premium_percent", 0).execute()
         bonds = res.data
         
         if bonds:
