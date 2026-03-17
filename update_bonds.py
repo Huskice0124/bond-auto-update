@@ -75,6 +75,18 @@ def main():
                     }) \
                     .eq("bond_code", bond_code) \
                     .execute()
+                # 🚀 4-2. 新增：同步寫入歷史紀錄表 (Option B 的核心)
+                history_record = {
+                    "bond_code": bond_code,
+                    "stock_ref_price": current_price
+                }
+                supabase.table("bond_history").insert(history_record).execute()
+                
+                print(f"✅ 更新成功並存入歷史: 債券 {bond_code} 價格: {current_price}")
+                updated_count += 1
+                
+            except Exception as e:
+                print(f"❌ 處理債券 {bond_code} 時發生錯誤: {e}")
                 
                 print(f"✅ 更新成功: 債券 {bond_code} -> 現股 {resolved_ticker} 價格: {current_price}")
                 updated_count += 1
